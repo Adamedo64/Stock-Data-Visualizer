@@ -133,34 +133,40 @@ def main():
             print("Please enter a valid number (1, 2, 3, or 4).")
     #Ask the user to enter start date
     #Check to make sure the date is entered in the proper format
-    while True:
-        try:
-            start_date_str = input("\nEnter the start date (YYYY-MM-DD): ")
-            start_date = datetime.datetime.strptime(start_date_str, "%Y-%m-%d").date()
-            break
-        except ValueError:
-            print("Please enter the date in the proper format (YYYY-MM-DD).")
     #Ask the user to enter end date
     #Check to make sure user enters a valid format end date
     while True:
-    start_date = input("Enter the start date (YYYY-MM-DD): ")
-    end_date = input("Enter the end date (YYYY-MM-DD): ")
+        start_date = input("Enter the start date (YYYY-MM-DD): ")
+        end_date = input("Enter the end date (YYYY-MM-DD): ")
+        try:
+            start_y, start_m, start_d = start_date.split('-')
+            end_y, end_m, end_d = end_date.split('-')
 
-    try:
-        start_y, start_m, start_d = start_date.split('-')
-        end_y, end_m, end_d = end_date.split('-')
+            if (start_y, start_m, start_d) > (end_y, end_m, end_d):
+                print("Start date cannot be later than end date. Please try again.")
+            else:
+                break
+        except ValueError:
+            print("Invalid date format. Please enter date in YYYY-MM-DD format.")
 
-        if (start_y, start_m, start_d) > (end_y, end_m, end_d):
-            print("Start date cannot be later than end date. Please try again.")
-        else:
+        print("Start date:", start_date)
+        print("End date:", end_date)
+
+
+        
+    while True:
+        Continue_Stock = input("Would you like to view more stock data? Press 'y' to continue or Press 'n' to exit: ")
+        if Continue_Stock.lower() == 'y':
+            pass
+        elif Continue_Stock.lower() == 'n':
+            print("Exiting the program.")
             break
-    except ValueError:
-        print("Invalid date format. Please enter date in YYYY-MM-DD format.")
-
-print("Start date:", start_date)
-print("End date:", end_date)
         else:
             print("Invalid input. Please enter 'y' to continue or 'n' to exit.")
+
+
+
+
    
 main()
 
