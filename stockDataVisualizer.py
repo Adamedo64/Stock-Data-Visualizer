@@ -87,8 +87,7 @@ def main():
         except ValueError:
             print("Invalid date format. Please enter date in YYYY-MM-DD format.")
 
-        print("Start date:", start_date)
-        print("End date:", end_date)
+        
 
     #defining lists to store data once the dates are filtered and sorted
     dataInRange = []
