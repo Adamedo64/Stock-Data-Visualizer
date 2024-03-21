@@ -65,24 +65,22 @@ def main():
     #Ask the user to enter end date
     #Check to make sure user enters a valid format end date
     while True:
-        try:
-            end_date_str = input("\nEnter the end date (YYYY-MM-DD): ")
-            end_date = datetime.datetime.strptime(end_date_str, "%Y-%m-%d").date()
-            if end_date > start_date:
-                break
-            else:
-                print("The end date must be after the start date.")
-        except ValueError:
-            print("Please enter the date in the proper format (YYYY-MM-DD).")
-    #Ask the user if they would like more stock data
-    #Check to make sure value is a y or n
-    while True:
-        Continue_Stock = input("Would you like to view more stock data? Press 'y' to continue or Press 'n' to exit: ")
-        if Continue_Stock.lower() == 'y':
-            pass
-        elif Continue_Stock.lower() == 'n':
-            print("Exiting the program.")
+    start_date = input("Enter the start date (YYYY-MM-DD): ")
+    end_date = input("Enter the end date (YYYY-MM-DD): ")
+
+    try:
+        start_y, start_m, start_d = start_date.split('-')
+        end_y, end_m, end_d = end_date.split('-')
+
+        if (start_y, start_m, start_d) > (end_y, end_m, end_d):
+            print("Start date cannot be later than end date. Please try again.")
+        else:
             break
+    except ValueError:
+        print("Invalid date format. Please enter date in YYYY-MM-DD format.")
+
+print("Start date:", start_date)
+print("End date:", end_date)
         else:
             print("Invalid input. Please enter 'y' to continue or 'n' to exit.")
    
