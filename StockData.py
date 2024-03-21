@@ -65,7 +65,10 @@ def main():
         try:
             end_date_str = input("\nEnter the end date (YYYY-MM-DD): ")
             end_date = datetime.datetime.strptime(end_date_str, "%Y-%m-%d").date()
-            break
+            if end_date > start_date:
+                break
+            else:
+                print("The end date must be after the start date.")
         except ValueError:
             print("Please enter the date in the proper format (YYYY-MM-DD).")
     #Ask the user if they would like more stock data
