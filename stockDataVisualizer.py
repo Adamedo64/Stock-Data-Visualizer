@@ -1,7 +1,91 @@
 import requests
 import pygal
 import webbrowser
-import platform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def intradaily(symbol):
     return 'https://alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' + symbol + '&interval=5min&apikey=K7HLGROEFZW2C06M'
@@ -68,6 +152,8 @@ line_chart.add('High', high) #high line
 line_chart.add('Low', low) #low line
 line_chart.add('Close', close) #close line
 line_chart.render_to_file('chart.svg') #rendering chart to file
+
+import platform
 
 if platform.system() == "Windows": #if user is using Windows it will choose this
     browser = webbrowser.get('windows-default') #default windows browser
